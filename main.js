@@ -31,7 +31,6 @@ $(document).ready(function(){
         } 
     }
 
-    console.log($(document).innerWidth())
     // smooth scroll behaviour
     $('a.section-link').on('click', function(event) {
         if(this.hash !== '') {
@@ -56,6 +55,12 @@ $("#my-form").submit(function(e) {
   
     var $form = $(this);
     $.post($form.attr("action"), $form.serialize()).then(function() {
-      alert("Thank you for your submission. I'll be in touch ASAP!");
+        $('.success-message').css('display','block')
+        $('.success-message').text('Message sent, I\'ll be in touch ASAP')
+        $('#my-form')[0].reset()
     });
 });
+
+setTimeout(() => {
+    $('.success-message').css('display','none')
+}, 2000);
