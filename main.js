@@ -62,5 +62,5 @@ $("#my-form").submit(function(e) {
 });
 
 setTimeout(() => {
-    $('.success-message').css('display','none')
+    document.querySelector('.success-message').style.display = 'none'
 }, 2000);
