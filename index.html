@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Charles Muriuki - My porfolio</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
 </head>
@@ -35,6 +35,12 @@
                 </ul>
             </div>
         </nav>
+
+        <div class="menu-toggle-button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
 
         <section id="hero-section">
             <div class="wrapper">
@@ -149,7 +155,7 @@
                     <!--CONTACT FORM-->
                         <div class="contact-form">
                             <h2>Or shoot a message my way</h2>
-                            <form action="">
+                            <form method="POST" data-netlify="true" id="my-form">
                                 <div class="form-control">
                                     <label for="name"><small>Name</small></label>
                                     <input type="text" placeholder="Enter name">

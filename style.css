@@ -85,6 +85,11 @@ nav {
     -webkit-box-shadow: 0px 3px 13px -2px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 3px 13px -2px rgba(0,0,0,0.75);
     box-shadow: 0px 3px 13px -2px rgba(0,0,0,0.75);
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
     z-index: 2;
 }
 
@@ -100,6 +105,64 @@ nav {
 }
 .navigation-link a {
     color: #000;
+}
+
+/* TOGGLE BUTTON */
+.menu-toggle-button {
+    width: 40px;
+    height: 40px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid #333;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    cursor: pointer;
+}
+.menu-toggle-button div {
+    width: 25px;
+    height: 3px;
+    border-radius: 20px;
+    background: #000;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+
+.menu-toggle-button.toggle-button-active div:nth-of-type(1) {
+    width: 15px;
+    transform: rotate(-45deg) translate(-10px,-1px);
+    -webkit-transform: rotate(-45deg) translate(-10px,-1px);
+    -moz-transform: rotate(-45deg) translate(-10px,-1px);
+    -ms-transform: rotate(-45deg) translate(-10px,-1px);
+    -o-transform: rotate(-45deg) translate(-10px,-1px);
+}
+
+.menu-toggle-button.toggle-button-active div:nth-of-type(3) {
+    width: 15px;
+    transform: rotate(45deg) translate(-10px, 1px);
+    -webkit-transform: rotate(45deg) translate(-10px, 1px);
+    -moz-transform: rotate(45deg) translate(-10px, 1px);
+    -ms-transform: rotate(45deg) translate(-10px, 1px);
+    -o-transform: rotate(45deg) translate(-10px, 1px);
+}
+
+nav.reveal-menu {
+    left: 0;
 }
 
 section {
@@ -202,9 +265,6 @@ section {
 }
 
 #projects-section {
-    background-image: url('./dots-square.png');
-    background-repeat: no-repeat;
-    background-position: right 45px bottom 20px;
     padding: 18px;
 }
 
@@ -370,12 +430,35 @@ footer {
         width: 100%;
         margin: 0 auto 0;
     }
+
+    .menu-toggle-button {
+        display: flex;
+    }
+    nav {
+        position: fixed;
+        left: -100%;
+        height: 105vh;
+        width: 50%;
+        background: rgba(255, 255, 255, 0.98);
+    }
+
+    nav .wrapper {
+        height: 50%;
+        margin-top: 50px;
+    }
+
+    .navigation-links {
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+    }
     #hero-section {
         flex-direction: column-reverse;
     }
+
     .hero-section-title {
         width: 100%;
-        margin: 0;
+        margin: 0px 15px;
     }
     .projects {
         grid-template-columns: repeat(2,1fr);
@@ -386,7 +469,7 @@ footer {
     
 }
 
-@media(max-width: 500px) {
+@media(max-width: 600px) {
     .overlay-icon .fas,
     .overlay-icon h1 {
         color: #fff;
