@@ -31,6 +31,53 @@ $(document).ready(function(){
         } 
     }
 
+
+    // matrix effect
+
+    const canvas = document.getElementById("matrix_canvas");
+        const ctx = canvas.getContext("2d");
+
+        let w = canvas.width = document.getElementById("hero-section").clientWidth;
+        let h = canvas.height = document.getElementById("hero-section").clientHeight;
+
+        window.addEventListener("resize", function() {
+            w = canvas.width = document.getElementById("hero-section").clientWidth;
+            h = canvas.height = document.getElementById("hero-section").clientHeight;
+        })
+
+        ctx.fillStyle ="#000";
+        ctx.fillRect(0, 0, w, h);
+
+        const cols = Math.floor(w / 20) + 1;
+        const yPos = Array(cols).fill(0);
+        
+        function matrix() {
+            // draw a semitransparent black rectangle on top of the previous one
+            ctx.fillStyle = "#0001";
+            ctx.fillRect(0, 0, w, h);
+
+            // set color to green and font to 15pt monospace in the drawing context
+            ctx.fillStyle = "#0f0";
+            ctx.font = "15pt monospace";
+
+            // foreach column put a random character at the end
+            yPos.forEach((y, index) => {
+                // generate random character
+                const char = String.fromCharCode(Math.random() * 128);
+
+                // calculate x coordinate, we already have y coordinate (0 to begin with)
+                const xPos = index * 20;
+
+                // render the char at x, y
+                ctx.fillText(char, xPos, y);
+
+                if(y > h || y > 100 + Math.random() * 10000) yPos[index] = 0
+                yPos[index] += 20;
+            })
+        }
+
+        setInterval(matrix, 50);
+
     // smooth scroll behaviour
     $('a.section-link').on('click', function(event) {
         if(this.hash !== '') {
