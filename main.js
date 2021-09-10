@@ -46,6 +46,20 @@ $(document).ready(function(){
             }) 
         }
     })
+
+    // scroll up
+    $(".scroll-top").on("click", function() {
+        if($(window).scrollTop() > 20) {
+            $(".scroll-top").addClass("active");
+        }
+    })
+
+    $(document).on("scroll", function() {
+        if($(window).scrollTop() < 15) {
+
+            $(".scroll-top").removeClass("active");
+        }
+    })
 }) 
 
 
